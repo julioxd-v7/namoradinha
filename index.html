@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brisinha Villar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #10a4df;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative; /* AGORA o botão vai correr aqui */
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .conteudo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .painel {
+      background-color: white;
+      width: 90%;
+      max-width: 450px;
+      border-radius: 20px;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    #sim {
+      height: 40px;
+      width: 120px;
+      background-color: #15c54a;
+      border: 1px solid rgb(44, 255, 2);
+      border-radius: 10px;
+      color: rgb(0, 0, 0.7);
+      font-family: fantasy;
+      margin: 10px;
+    }
+
+    #nao {
+      position: absolute;
+      height: 60px;
+      width: 100px;
+      background-color: #b41021cb;
+      border: 1px solid rgb(194, 66, 66);
+      border-radius: 10px;
+      color: rgb(0, 0, 0.7);
+      font-family: fantasy;
+      transition: left 0.3s ease, top 0.3s ease;
+      z-index: 99;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    footer {
+      background-color: rgb(111, 76, 240);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      #sim, #nao {
+        width: 90px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="conteudo">
+    <div class="painel">
+      <h1>Oi Amor da Minha Vida</h1>
+      <img src="https://i.gifer.com/NOWg.gif" alt="" width="100%">
+      <h2>Libera Cuzinho hoje?</h2>
+      <a href="https://open.spotify.com/playlist/5PEqswSluh7m4INPbfBQkt?si=185c1f9bc03846d8">
+        <button id="sim">Libero momozii!</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Botão que corre fora da caixinha -->
+  <button onmouseover="fuja()" id="nao">Não vou liberar!</button>
+
+  <footer>
+    <p>© Feito pelo seu namorado Julio Vinicius 💖</p>
+  </footer>
+
+  <!-- Áudio engraçado -->
+  <audio id="audioFuja" src="https://www.myinstants.com/media/sounds/head-shake-1.mp3"></audio>
+
+  <script>
+    function fuja() {
+      const botaoNao = document.getElementById("nao");
+      const audio = document.getElementById("audioFuja");
+
+      const larguraJanela = window.innerWidth;
+      const alturaJanela = window.innerHeight;
+
+      const botaoWidth = botaoNao.offsetWidth;
+      const botaoHeight = botaoNao.offsetHeight;
+
+      const maxX = larguraJanela - botaoWidth;
+      const maxY = alturaJanela - botaoHeight - 100; // evita passar do footer
+
+      const aleatorioX = Math.floor(Math.random() * maxX);
+      const aleatorioY = Math.floor(Math.random() * maxY);
+
+      botaoNao.style.left = aleatorioX + "px";
+      botaoNao.style.top = aleatorioY + "px";
+
+      audio.play();
+    }
+  </script>
+</body>
+</html>
