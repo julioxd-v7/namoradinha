@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brisinha Villar</title>
@@ -16,7 +17,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      position: relative; /* AGORA o botão vai correr aqui */
+      position: relative;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
@@ -85,21 +86,19 @@
     <div class="painel">
       <h1>Oi Amor da Minha Vida</h1>
       <img src="https://i.gifer.com/NOWg.gif" alt="" width="100%">
-      <h2>Libera Cuzinho hoje?</h2>
+      <h2>Você me ama?</h2>
       <a href="https://open.spotify.com/playlist/5PEqswSluh7m4INPbfBQkt?si=185c1f9bc03846d8">
-        <button id="sim">Libero momozii!</button>
+        <button id="sim">Amoo!</button>
       </a>
     </div>
   </div>
 
-  <!-- Botão que corre fora da caixinha -->
-  <button onmouseover="fuja()" id="nao">Não vou liberar!</button>
+  <button onmouseover="fuja()" id="nao">Não!</button>
 
   <footer>
-    <p>© Feito pelo seu namorado Julio Vinicius 💖</p>
+    <p>© Feito pelo seu namorado Júlio Vinícius 💖</p>
   </footer>
 
-  <!-- Áudio engraçado -->
   <audio id="audioFuja" src="https://www.myinstants.com/media/sounds/head-shake-1.mp3"></audio>
 
   <script>
@@ -114,7 +113,7 @@
       const botaoHeight = botaoNao.offsetHeight;
 
       const maxX = larguraJanela - botaoWidth;
-      const maxY = alturaJanela - botaoHeight - 100; // evita passar do footer
+      const maxY = alturaJanela - botaoHeight - 100;
 
       const aleatorioX = Math.floor(Math.random() * maxX);
       const aleatorioY = Math.floor(Math.random() * maxY);
